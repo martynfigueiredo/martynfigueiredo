@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'martynfigueiredo.dev',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.yellowAccent,
+          seedColor: Colors.grey,
           brightness: Brightness.light,
         ),
         useMaterial3: true,
