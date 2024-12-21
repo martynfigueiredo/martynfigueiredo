@@ -83,10 +83,10 @@ class SocialMediaLink extends StatelessWidget {
   final String url;
 
   const SocialMediaLink({
-    Key? key,
+    super.key,
     required this.text,
     required this.url,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
