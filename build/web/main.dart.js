@@ -51962,7 +51962,7 @@ O(a){var s=null,r=A.aq(a).ax,q=r.y2
 r=q==null?r.c:q
 this.a.toString
 q=A.a3c("martynfigueiredo.dev",s)
-return new A.rg(new A.o9(q,r,new A.EZ(s,s,1/0,56),s),A.Ja(A.adC(A.a([B.K2,B.Fc,new A.iO("LinkedIn","https://www.linkedin.com/in/martynfigueiredo/",s),B.eb,new A.iO("GitHub","https://github.com/martynfigueiredo",s),B.eb,new A.iO("Google Developers","https://g.dev/martynfigueiredo",s),B.eb,new A.iO("Microsoft Learn","https://learn.microsoft.com/en-us/users/martynrangelfigueiredo/",s),B.eb,new A.iO("Resume","https://docs.google.com/document/d/1pm2WDLZXQQuIeK_DJAQIEH-t7DPEA6DgsR8d_QK62_g/edit?usp=sharing",s)],t.nA),B.nW),s,s),s)}}
+return new A.rg(new A.o9(q,r,new A.EZ(s,s,1/0,56),s),A.Ja(A.adC(A.a([B.K2,B.Fc,new A.iO("LinkedIn","https://www.linkedin.com/in/martynfigueiredo/",s),B.eb,new A.iO("GitHub","https://github.com/martynfigueiredo",s),B.eb,new A.iO("Google Developers","https://g.dev/martynfigueiredo",s),B.eb,new A.iO("Microsoft Learn","https://learn.microsoft.com/en-us/users/martynfigueiredo/",s),B.eb,new A.iO("Resume","https://docs.google.com/document/d/1pm2WDLZXQQuIeK_DJAQIEH-t7DPEA6DgsR8d_QK62_g/edit?usp=sharing",s)],t.nA),B.nW),s,s),s)}}
 A.iO.prototype={
 O(a){var s=null
 return new A.B5(new A.Uu(this,a),s,s,s,s,s,s,!1,s,!0,s,A.a3c(this.c,B.tW),s)}}
