@@ -67,6 +67,12 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             const SizedBox(height: 10),
             SocialMediaLink(
+              text: 'Microsoft Learn',
+              url:
+                  'https://learn.microsoft.com/en-us/users/martynrangelfigueiredo/',
+            ),
+            const SizedBox(height: 10),
+            SocialMediaLink(
               text: 'Resume',
               url:
                   'https://docs.google.com/document/d/1pm2WDLZXQQuIeK_DJAQIEH-t7DPEA6DgsR8d_QK62_g/edit?usp=sharing',
