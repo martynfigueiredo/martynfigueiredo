@@ -5,8 +5,15 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool isDarkMode = false;
 
   @override
   Widget build(BuildContext context) {
@@ -15,40 +22,97 @@ class MyApp extends StatelessWidget {
       title: 'martynfigueiredo.dev',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.greenAccent,
+          seedColor: Colors.black,
           brightness: Brightness.light,
+        ).copyWith(
+          primary: Colors.black,
+          secondary: Colors.blue,
+          background: Colors.white,
+          surface: Colors.white,
+          onPrimary: Colors.black,
+          onSecondary: Colors.white,
+          onBackground: Colors.black,
+          onSurface: Colors.black,
+        ),
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black,
+        ),
+        buttonTheme: ButtonThemeData(
+          buttonColor: Colors.blueAccent,
+          textTheme: ButtonTextTheme.primary,
         ),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'martynfigueiredo.dev'),
+      darkTheme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.white,
+          brightness: Brightness.dark,
+        ).copyWith(
+          primary: Colors.white,
+          secondary: Colors.white,
+          background: Colors.black,
+          surface: Colors.black,
+          onPrimary: Colors.white,
+          onSecondary: Colors.black,
+          onBackground: Colors.white,
+          onSurface: Colors.white,
+        ),
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.black,
+          foregroundColor: Colors.white,
+        ),
+        buttonTheme: ButtonThemeData(
+          buttonColor: Colors.blueAccent,
+          textTheme: ButtonTextTheme.primary,
+        ),
+        useMaterial3: true,
+      ),
+      themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
+      home: MyHomePage(
+        title: 'martynfigueiredo.dev',
+        toggleTheme: toggleTheme,
+      ),
     );
+  }
+
+  void toggleTheme() {
+    setState(() {
+      isDarkMode = !isDarkMode;
+    });
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key, required this.title, required this.toggleTheme});
 
   final String title;
+  final VoidCallback toggleTheme;
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        title: Text(title),
+        actions: [
+          IconButton(
+            icon: Icon(
+              Theme.of(context).brightness == Brightness.dark
+                  ? Icons.light_mode
+                  : Icons.dark_mode,
+            ),
+            onPressed: toggleTheme,
+          ),
+        ],
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Spacer(),
             const Text(
               'Welcome',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 20),
             ),
             const SizedBox(height: 20),
             SocialMediaLink(
@@ -68,14 +132,20 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(height: 10),
             SocialMediaLink(
               text: 'Microsoft Learn',
-              url:
-                  'https://learn.microsoft.com/en-us/users/martynfigueiredo/',
+              url: 'https://learn.microsoft.com/',
             ),
-            const SizedBox(height: 10),
-            SocialMediaLink(
-              text: 'Resume',
-              url:
-                  'https://docs.google.com/document/d/1pm2WDLZXQQuIeK_DJAQIEH-t7DPEA6DgsR8d_QK62_g/edit?usp=sharing',
+            Spacer(),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Text(
+                'martynfigueiredo.dev 2024-${DateTime.now().year}',
+                style: TextStyle(
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? Colors.white
+                      : Colors.black,
+                  fontSize: 10.0,
+                ),
+              ),
             ),
           ],
         ),
@@ -84,33 +154,37 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class SocialMediaLink extends StatelessWidget {
+class SocialMediaLink extends StatefulWidget {
+  const SocialMediaLink({super.key, required this.text, required this.url});
+
   final String text;
   final String url;
 
-  const SocialMediaLink({
-    super.key,
-    required this.text,
-    required this.url,
-  });
+  @override
+  _SocialMediaLinkState createState() => _SocialMediaLinkState();
+}
+
+class _SocialMediaLinkState extends State<SocialMediaLink> {
+  bool _isHovering = false;
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: () async {
-        final Uri uri = Uri.parse(url);
-        if (await canLaunchUrl(uri)) {
-          await launchUrl(uri);
-        } else {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Could not launch $url')),
-          );
-        }
-      },
-      child: Text(
-        text,
-        style: const TextStyle(
-          fontWeight: FontWeight.bold,
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovering = true),
+      onExit: (_) => setState(() => _isHovering = false),
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        onTap: () async {
+          if (await canLaunch(widget.url)) {
+            await launch(widget.url);
+          }
+        },
+        child: Text(
+          widget.text,
+          style: TextStyle(
+            color: _isHovering ? Colors.blueAccent : Colors.blue,
+            decoration: TextDecoration.none,
+          ),
         ),
       ),
     );
