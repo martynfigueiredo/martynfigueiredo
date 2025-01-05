@@ -27,11 +27,9 @@ class _MyAppState extends State<MyApp> {
         ).copyWith(
           primary: Colors.black,
           secondary: Colors.blue,
-          background: Colors.white,
           surface: Colors.white,
           onPrimary: Colors.black,
           onSecondary: Colors.white,
-          onBackground: Colors.black,
           onSurface: Colors.black,
         ),
         appBarTheme: AppBarTheme(
@@ -51,11 +49,9 @@ class _MyAppState extends State<MyApp> {
         ).copyWith(
           primary: Colors.white,
           secondary: Colors.white,
-          background: Colors.black,
           surface: Colors.black,
           onPrimary: Colors.white,
           onSecondary: Colors.black,
-          onBackground: Colors.white,
           onSurface: Colors.white,
         ),
         appBarTheme: AppBarTheme(
@@ -114,15 +110,25 @@ class MyHomePage extends StatelessWidget {
               'Welcome',
               style: TextStyle(fontSize: 20),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
+            SocialMediaLink(
+              text: 'Resume',
+              url: 'https://docs.google.com/document/d/1pm2WDLZXQQuIeK_DJAQIEH-t7DPEA6DgsR8d_QK62_g/edit?usp=sharing',
+            ),
+            const SizedBox(height: 10),
             SocialMediaLink(
               text: 'LinkedIn',
-              url: 'https://www.linkedin.com/in/martynfigueiredo/',
+              url: 'www.linkedin.com/in/martyn-figueiredo-663b4b69',
             ),
             const SizedBox(height: 10),
             SocialMediaLink(
               text: 'GitHub',
               url: 'https://github.com/martynfigueiredo',
+            ),
+            const SizedBox(height: 10),
+            SocialMediaLink(
+              text: 'beecrowd',
+              url: 'https://judge.beecrowd.com/en/profile/1085164',
             ),
             const SizedBox(height: 10),
             SocialMediaLink(
@@ -132,7 +138,7 @@ class MyHomePage extends StatelessWidget {
             const SizedBox(height: 10),
             SocialMediaLink(
               text: 'Microsoft Learn',
-              url: 'https://learn.microsoft.com/',
+              url: 'https://learn.microsoft.com/en-us/users/martynfigueiredo/',
             ),
             Spacer(),
             Padding(
