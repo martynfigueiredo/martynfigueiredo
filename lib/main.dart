@@ -118,7 +118,7 @@ class MyHomePage extends StatelessWidget {
             const SizedBox(height: 10),
             SocialMediaLink(
               text: 'LinkedIn',
-              url: 'www.linkedin.com/in/martyn-figueiredo-663b4b69',
+              url: 'https://www.linkedin.com/in/martyn-figueiredo-663b4b69',
             ),
             const SizedBox(height: 10),
             SocialMediaLink(
