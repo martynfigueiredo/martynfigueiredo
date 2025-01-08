@@ -127,7 +127,7 @@ class MyHomePage extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             SocialMediaLink(
-              text: 'beecrowd',
+              text: 'Beecrowd',
               url: 'https://judge.beecrowd.com/en/profile/1085164',
             ),
             const SizedBox(height: 10),
