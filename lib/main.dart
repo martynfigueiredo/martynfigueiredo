@@ -130,16 +130,6 @@ class MyHomePage extends StatelessWidget {
               text: 'Beecrowd',
               url: 'https://judge.beecrowd.com/en/profile/1085164',
             ),
-            const SizedBox(height: 10),
-            SocialMediaLink(
-              text: 'Google Developers',
-              url: 'https://g.dev/martynfigueiredo',
-            ),
-            const SizedBox(height: 10),
-            SocialMediaLink(
-              text: 'Microsoft Learn',
-              url: 'https://learn.microsoft.com/en-us/users/martynfigueiredo/',
-            ),
             Spacer(),
             Padding(
               padding: const EdgeInsets.all(20.0),
